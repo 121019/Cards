@@ -1,6 +1,6 @@
 img {
   --f: 0.1; /* the parallax factor (the smaller the better) */
-  --r: 2rem; /* radius */
+  --r: 4rem; /* radius */
 
   --_f: calc(100% * var(--f) / (1 + var(--f)));
   --_a: calc(90deg * var(--f));
@@ -27,12 +27,15 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: space-around;
+  padding:3rem;
+  
 }
 
 img {
   width: 15rem;
   height: 25rem;
-  padding: 2rem;
+  padding: 2.5rem;
+  margin:3rem;
   border-radius: 5rem;
 }
 
@@ -69,31 +72,37 @@ h2 {
   text-align: center;
   color: antiquewhite;
   font-size: 2.5rem;
-  margin-top: 5rem;
-}
-
-.button1 > button {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 4rem;
-  background-color: #8c8cef;
-  font-size: 1rem;
-  width: 5rem;
-  color: rgb(246, 246, 246);
+  margin-top: 9rem;
 }
 
 .youare {
   text-align: center;
   color: rgb(246, 246, 246);
+  padding-top:3rem;
+  
 }
 
-.bvalidate > button {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: space-around;
-  color: rgb(246, 246, 246);
-  background-color: #8c8cef;
-  width: 5rem;
+ .bvalidate >.bvalidate1 {
+  margin-top: 6rem;
+  background-color: #2d2df4;
   font-size: 1rem;
+  width: 5rem;
+  color: rgb(246, 246, 246);
+}
+
+.bvalidate{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+
+}
+
+.input-name {
+  border: 2px solid #76b3f4; 
+  padding: 0.2rem;  
+  border-radius: 5px;  
+  font-size:1.5rem; 
+  width: 7rem; 
+  outline: none; 
+  color:  #0576f0;
 }

@@ -1,96 +1,62 @@
 import React, { useState } from "react";
+import { Link,useNavigate } from "react-router-dom";
 
 import "/index.css";
 
-const renderSkills = (skillValue) => {
-  const maxSkillValue = 5;
-  const skillElements = [];
-
-  for (let i = 1; i <= maxSkillValue; i++) {
-    const isActive = i <= skillValue;
-    skillElements.push(
-      <span key={i} className={`skill-box ${isActive ? "active" : ""}`}></span>
-    );
-  }
-
-  return skillElements;
-};
 
 const Characters = () => {
   const [selectedName, setSelectedName] = useState("");
+  const navigate = useNavigate();
+
 
   const handleNameChange = (event) => {
     setSelectedName(event.target.value);
   };
 
-  const characters = [
-    {
-      imageSrc: "public/assets/vikingguerrier2.jpg",
-      name: "Frigg",
-      strength: 3,
-      endurance: 4,
-      charisma: 2,
-    },
-    {
-      imageSrc: "public/assets/princesseguerriere1.jpg",
-      name: "Freyja",
-      strength: 1,
-      endurance: 3,
-      charisma: 5,
-    },
-    {
-      imageSrc: "public/assets/vikingguerrier3.jpg",
-      name: "Viggo",
-      strength: 4,
-      endurance: 3,
-      charisma: 4,
-    },
+  const handleValidate = () => {
+    // Construire le chemin de redirection en utilisant le nom sélectionné
+    const heroPath = `/${selectedName}`;
+    navigate(heroPath);
+  };
+  const links = [
+    { path: "/Frigg", text: "Frigg" },
+    { path: "/Freyja", text: "Freyja" },
+    { path: "/Viggo", text: "Viggo" },
   ];
 
   return (
-    <>
+    <div>
       <div className="youare">
         <h1>
-          Vous êtes {""}
+          Vous êtes {""}  
           <input
             type="text"
             value={selectedName}
             onChange={handleNameChange}
             placeholder="Nom"
+            className="input-name"
           />
-        </h1>
+      </h1>
       </div>
       <div className="bvalidate">
-        <button>Valider</button>
+      <button onClick={handleValidate} className="bvalidate1">Valider</button>    
       </div>
+
       <div className="img3">
-        {characters.map((character, index) => (
-          <div key={index}>
-            <h2>{character.name}</h2>
-            <img src={character.imageSrc} alt={character.name} />
-            <div className="skills">
-              <div>
-                <strong>Strength:</strong> {renderSkills(character.strength)}
-              </div>
-              <div>
-                <strong>Endurance:</strong> {renderSkills(character.endurance)}
-              </div>
-              <div>
-                <strong>Charisma:</strong> {renderSkills(character.charisma)}
-              </div>
-            </div>
+        {links.map((link) => (
+          <div key={link.text}>
+              <h2>{link.text}</h2>
+            <Link to={link.path}>
+              <img
+                src={`/public/assets/${link.text}.jpg`}
+                alt={link.text}
+              />
+            </Link>
           </div>
         ))}
       </div>
-      <div className="button1">
-        <button onClick={startNextPage}>Start</button>
-      </div>
-    </>
+    </div>
   );
-};
-
-function startNextPage() {
-  // Code pour passer à la page suivante
-}
+}; 
 
 export default Characters;
