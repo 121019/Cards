@@ -1,6 +1,6 @@
 import React from "react";
 import "./Viking.css";
-import ImgViggo from "./assets/ImgViggo.jpg";
+import ImgViggo from "/ImgViggo.jpg";
 
 
 const Viggo = () => {

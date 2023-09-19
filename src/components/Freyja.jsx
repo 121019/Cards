@@ -1,6 +1,6 @@
 import React from "react";
 import "./Viking.css";
-import ImgFreyja from "./assets/ImgFreyja.jpg";
+import ImgFreyja from "/ImgFreyja.jpg";
 
 
 const Freyja = () => {

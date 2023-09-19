@@ -1,0 +1,108 @@
+img {
+  --f: 0.1; /* the parallax factor (the smaller the better) */
+  --r: 4rem; /* radius */
+
+  --_f: calc(100% * var(--f) / (1 + var(--f)));
+  --_a: calc(90deg * var(--f));
+  aspect-ratio: calc(1 + var(--f));
+  clip-path: inset(0 var(--_f) 0 0 round var(--r));
+  transform: perspective(400px) var(--_t, rotateY(var(--_a)));
+  transition: 0.5s;
+  cursor: pointer;
+}
+img:hover {
+  clip-path: inset(0 0 0 var(--_f) round var(--r));
+  --_t: translateX(calc(-1 * var(--_f))) rotateY(calc(-1 * var(--_a)));
+}
+
+body {
+  background-image: url("/backgroundlight.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Mise en page des images */
+.img3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: space-around;
+  padding:3rem;
+  
+}
+
+img {
+  width: 15rem;
+  height: 25rem;
+  padding: 2.5rem;
+  margin:3rem;
+  border-radius: 5rem;
+}
+
+.characters {
+  display: flex;
+}
+
+.character-card {
+  text-align: center;
+}
+
+/* Styles pour les compétences */
+.skills {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.skill-box {
+  width: 20px;
+  height: 10px;
+  background-color: #8c8cef; /* Couleur de base des cases */
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.skill-box.active {
+  background-color: rgb(246, 246, 246);
+  margin-top: 0.5rem;
+}
+
+/* Styles pour les noms des personnages */
+
+h2 {
+  text-align: center;
+  color: antiquewhite;
+  font-size: 2.5rem;
+  margin-top: 9rem;
+}
+
+.youare {
+  text-align: center;
+  color: rgb(246, 246, 246);
+  padding-top:3rem;
+  
+}
+
+ .bvalidate >.bvalidate1 {
+  margin-top: 6rem;
+  background-color: #2d2df4;
+  font-size: 1rem;
+  width: 5rem;
+  color: rgb(246, 246, 246);
+}
+
+.bvalidate{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+
+}
+
+.input-name {
+  border: 2px solid #76b3f4; 
+  padding: 0.2rem;  
+  border-radius: 5px;  
+  font-size:1.5rem; 
+  width: 7rem; 
+  outline: none; 
+  color:  #0576f0;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Viking.css";
-import ImgFrigg from "./assets/ImgFrigg.jpg";
+import ImgFrigg from "/ImgFrigg.jpg";
 
 
 const Frigg = () => {
