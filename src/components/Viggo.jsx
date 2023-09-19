@@ -1,9 +1,25 @@
 import React from "react";
 import "./Viking.css";
+import ImgViggo from "./assets/ImgViggo.jpg";
+
+
+const Viggo = () => {
+  const characterData = {
+    name: "Viggo",
+    strength: 3,
+    endurance: 4,
+    charisma: 5,
+  };
+
+  return (
+    <div className="characteristics">
+      <CharacterDetails {...characterData} />
+    </div>
+  );
+};
 
 const CharacterDetails = ({
   name,
-  imageSrc,
   strength,
   endurance,
   charisma,
@@ -12,6 +28,10 @@ const CharacterDetails = ({
   const renderCharacteristics = (label, value) => {
     const characteristicElements = [];
 
+   characteristicElements.push(
+      <div key="space" className="characteristic-space"></div>
+    );
+    
     for (let i = 1; i <= 5; i++) {
       const isActive = i <= value;
       characteristicElements.push(
@@ -19,52 +39,40 @@ const CharacterDetails = ({
           key={i}
           className={`characteristic-box ${isActive ? "active" : ""}`}
         ></span>
+
+
       );
     }
 
     return (
       <div className="characteristic">
-        <strong>{label}:</strong>
+        <strong>{label}</strong>
         {characteristicElements}
       </div>
     );
   };
 
-  return (
-    <><div className="name">
-      <h3>{name}</h3>
-    </div><div className="img2">
-    <img src={imageSrc} alt={name} className="img4"/>
-      </div><div className="characteristic-details">
+
+  
+    return(  
+  <div className="characteristics">
+  <div className="name">
+    <h3>{name}</h3>
+  </div>
+  <div className="img2">
+    <img className="img4"  src={ImgViggo} alt={name} />
+  </div>
+
+
+
+  <div className="characteristic-details">
         {renderCharacteristics("Force", strength)}
         {renderCharacteristics("Endurance", endurance)}
         {renderCharacteristics("Charisme", charisma)}
-      </div></>
-  )
-}
-
-const Viggo = () => {
-
-  const characterData = {
-    name: "Viggo",
-    imageSrc: "public/assets/Viggo.jpg",
-    strength: 5,
-    endurance: 4,
-    charisma: 5,
-  };
-
-
-
-  return (
-    <div className="characteristics">
-      <CharacterDetails
-        {...characterData}
-      />
-   
-      
+      </div>
     </div>
   );
-};
 
+};
 
 export default Viggo;

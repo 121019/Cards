@@ -1,9 +1,25 @@
 import React from "react";
 import "./Viking.css";
+import ImgFreyja from "./assets/ImgFreyja.jpg";
+
+
+const Freyja = () => {
+  const characterData = {
+    name: "Freyja",
+    strength: 3,
+    endurance: 4,
+    charisma: 5,
+  };
+
+  return (
+    <div className="characteristics">
+      <CharacterDetails {...characterData} />
+    </div>
+  );
+};
 
 const CharacterDetails = ({
   name,
-  imageSrc,
   strength,
   endurance,
   charisma,
@@ -12,6 +28,10 @@ const CharacterDetails = ({
   const renderCharacteristics = (label, value) => {
     const characteristicElements = [];
 
+   characteristicElements.push(
+      <div key="space" className="characteristic-space"></div>
+    );
+    
     for (let i = 1; i <= 5; i++) {
       const isActive = i <= value;
       characteristicElements.push(
@@ -19,54 +39,40 @@ const CharacterDetails = ({
           key={i}
           className={`characteristic-box ${isActive ? "active" : ""}`}
         ></span>
+
+
       );
     }
 
     return (
       <div className="characteristic">
-        <strong>{label}:</strong>
+        <strong>{label}</strong>
         {characteristicElements}
       </div>
     );
   };
 
-  return (
-    <><div className="name">
-      <h3>{name}</h3>
-    </div>
-    <div className="img2">
-        <img src={imageSrc} alt={name} className="img4"/>
-      </div>
-      
-      <div className="characteristic-details">
+
+  
+    return(  
+  <div className="characteristics">
+  <div className="name">
+    <h3>{name}</h3>
+  </div>
+  <div className="img2">
+    <img className="img4"  src={ImgFreyja} alt={name} />
+  </div>
+
+
+
+  <div className="characteristic-details">
         {renderCharacteristics("Force", strength)}
         {renderCharacteristics("Endurance", endurance)}
         {renderCharacteristics("Charisme", charisma)}
-      </div></>
-  )
-}
-
-const Freyja = () => {
-
-  const characterData = {
-    name: "Freyja",
-    imageSrc: "public/assets/Freyja.jpg",
-    strength: 4,
-    endurance: 3,
-    charisma: 4,
-  };
-
-
-
-  return (
-    <div className="characteristics">
-      <CharacterDetails
-        {...characterData}
-      />
-   
-      
+      </div>
     </div>
   );
+
 };
 
 export default Freyja;

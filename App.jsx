@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Characters from "./src/components/Characters";
 import Freyja from "./src/components/Freyja";
 import Frigg from "./src/components/Frigg";
