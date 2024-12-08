@@ -1,6 +1,24 @@
 import React from "react";
 import "./Viking.css";
 import ImgViggo from "/ImgViggo.jpg";
+import { useNavigate } from "react-router-dom";
+
+
+const BackButton = () => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1); // Navigue vers la page précédente dans l'historique de React Router
+  };
+
+  return (
+    <div className="back-button-container">
+    <button onClick={handleBack} className="back-button">
+      Retour
+    </button>
+    </div>
+  );
+};
 
 
 const Viggo = () => {
@@ -52,8 +70,6 @@ const CharacterDetails = ({
     );
   };
 
-
-  
     return(  
   <div className="characteristics">
   <div className="name">
@@ -63,13 +79,12 @@ const CharacterDetails = ({
     <img className="img4"  src={ImgViggo} alt={name} />
   </div>
 
-
-
   <div className="characteristic-details">
         {renderCharacteristics("Force", strength)}
         {renderCharacteristics("Endurance", endurance)}
         {renderCharacteristics("Charisme", charisma)}
       </div>
+      <BackButton />
     </div>
   );
 

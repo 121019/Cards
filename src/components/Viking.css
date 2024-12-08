@@ -1,5 +1,3 @@
-
-
 .characteristic {
     display: flex;
     align-items: center;
@@ -51,7 +49,65 @@ h3{
 
   }
 
+/* Style pour le bouton de retour */
+button.back-button {
+  background-color: #4a136e;  
+  color: white;  
+  border: none; 
+  border-radius: 5rem;  
+  cursor: pointer; 
+  font-size: 1.2rem;  
+  margin: 4.4rem ;  
+  padding: 1rem 2rem;
 
+}
+
+.back-button:hover {
+  background-color: #5f36ce;  
+}
+
+.back-button-container {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+}
+
+
+.characters {
+  display: flex;
+}
+
+.character-card {
+  text-align: center;
+}
+
+/* Styles pour les compétences */
+.skills {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.skill-box {
+  width: 20px;
+  height: 10px;
+  background-color: #8c8cef; /* Couleur de base des cases */
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.skill-box.active {
+  background-color: rgb(246, 246, 246);
+  margin-top: 0.5rem;
+}
+
+/* Styles pour les noms des personnages */
+
+h2 {
+  text-align: center;
+  color: antiquewhite;
+  font-size: 2.5rem;
+  margin-top: 9rem;
+}
 
 
 

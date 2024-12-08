@@ -30,7 +30,7 @@ const Characters = () => {
   return (
 
     <><div style={{ backgroundImage: `url(${backgroundlight})` }}>
-    </div><div>
+    </div>
         <div className="youare">
           <h1>
             Vous êtes {""}
@@ -40,8 +40,7 @@ const Characters = () => {
               onChange={handleNameChange}
               placeholder="Nom"
               className="input-name" />
-          </h1>
-        </div>
+          </h1> 
         <div className="bvalidate">
           <button onClick={handleValidate} className="bvalidate1">Valider</button>
         </div>
@@ -57,7 +56,7 @@ const Characters = () => {
               </Link>
             </div>
           ))}
-        </div>
+      </div>
       </div></>
   );
 }; 

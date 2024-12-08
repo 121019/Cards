@@ -1,7 +1,24 @@
 import React from "react";
 import "./Viking.css";
 import ImgFreyja from "/ImgFreyja.jpg";
+import { useNavigate } from "react-router-dom";
 
+
+const BackButton = () => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1); // Navigue vers la page précédente dans l'historique de React Router
+  };
+
+  return (
+    <div className="back-button-container">
+    <button onClick={handleBack} className="back-button">
+      Retour
+    </button>
+    </div>
+  );
+};
 
 const Freyja = () => {
   const characterData = {
@@ -39,8 +56,6 @@ const CharacterDetails = ({
           key={i}
           className={`characteristic-box ${isActive ? "active" : ""}`}
         ></span>
-
-
       );
     }
 
@@ -52,27 +67,24 @@ const CharacterDetails = ({
     );
   };
 
-
-  
     return(  
   <div className="characteristics">
   <div className="name">
     <h3>{name}</h3>
   </div>
   <div className="img2">
-    <img className="img4"  src={ImgFreyja} alt={name} />
+    <img className="img4"  src={ImgFreyja} alt={name} /> 
   </div>
-
-
 
   <div className="characteristic-details">
         {renderCharacteristics("Force", strength)}
         {renderCharacteristics("Endurance", endurance)}
         {renderCharacteristics("Charisme", charisma)}
       </div>
+      <BackButton />
+
     </div>
   );
-
 };
 
 export default Freyja;
